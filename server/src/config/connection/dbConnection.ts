@@ -3,8 +3,8 @@ import pgPromise from "pg-promise";
 import { optionsPG } from "./optionsPG";
 
 dotenv.config({
-    path: "variables.env",
-});
+    path: ".env",
+}); 
 
 const db_name = String(process.env.DB_NAME);
 const db_user = String(process.env.DB_USER);

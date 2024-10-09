@@ -38,6 +38,9 @@ bower_components
 # Compiled binary addons (https://nodejs.org/api/addons.html)
 build/Release
 
+#Build folders
+build/
+
 # Dependency directories
 server/node_modules/
 server/jspm_packages/
@@ -73,7 +76,7 @@ web_modules/
 .yarn-integrity
 
 # dotenv environment variable files
-.env
+*.env
 .env.development.local
 .env.test.local
 .env.production.local
