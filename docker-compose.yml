@@ -1,0 +1,11 @@
+  version: '3'
+  services:
+    db:
+      build: ./database/
+      container_name: postgres_artesanias
+      environment:
+        POSTGRES_DB: db_artesanias
+        POSTGRES_USER: artesanias_user
+        POSTGRES_PASSWORD: 1234
+      ports:
+        - "5434:5432"                           
