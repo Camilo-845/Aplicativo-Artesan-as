@@ -1,11 +1,35 @@
-  version: '3'
-  services:
-    db:
-      build: ./database/
-      container_name: postgres_artesanias
-      environment:
-        POSTGRES_DB: db_artesanias
-        POSTGRES_USER: artesanias_user
-        POSTGRES_PASSWORD: 1234
-      ports:
-        - "5434:5432"                           
+version: '3'
+services:
+  db:
+    build: ./database/
+    container_name: ${DB_CONTAINER_NAME}  # Usando la variable del contenedor de la base de datos
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD} 
+    ports:
+      - "${DB_PORT}:5432"  # Utilizando la variable de puerto de la base de datos
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  server:
+    build: ./server/
+    container_name: ${SERVER_CONTAINER_NAME}  # Usando la variable del contenedor del servidor
+    environment:
+      DB_NAME: ${DB_NAME}
+      DB_USER: ${DB_USER}
+      DB_PORT: 5432
+      DB_HOST: ${DB_HOST}
+      DB_PASSWORD: ${DB_PASSWORD}
+      PORT: ${PORT}
+    ports:
+      - "${PORT}:${PORT}"  # Utilizando la variable de puerto del servidor
+    depends_on:
+      - db
+    volumes:
+      - ./server:/usr/src/app
+      - /usr/src/app/build 
+      - /usr/src/app/node_modules
+
+volumes:
+  postgres_data:
