@@ -2,13 +2,13 @@
 Aplicativo web para control de items relacionados con las artesanias de Boyáca
 
 ## Carcteristicas
-- Obten una gran de artesanias
+- Obten una gran nunmero de artesanias
 - Gran diseño de aplicacion
 ## Tecnologias
-- **Front:** React (TypeScript)
+- [**Front:**](./client/) React (TypeScript)
 - [**Backend:**](./server/) NodeJs (TypeScript)
 - [**Persistencia:**](/database/) Postgresql
-- **Empaquedo**: docker
+- **Empaquedo**: Docker
 - **Control de versiones**: Git
 ## Inicializar Proyecto
 Crear un archivo .env en la raiz del proyecto con el siguiente formato
@@ -27,8 +27,8 @@ PORT=8080
 DB_CONTAINER_NAME=postgres_artesanias
 SERVER_CONTAINER_NAME=api_server
 ```
-### Usando docker
-Se debe tener intalado previamente [docker](https://docs.docker.com/engine/install/) y [docker-compose](https://docs.docker.com/compose/install/)
+### Usando Docker
+Se debe tener instalado previamente [docker](https://docs.docker.com/engine/install/) y [docker-compose](https://docs.docker.com/compose/install/)
 ```sh
 docker-compose up --build -d
 ```
