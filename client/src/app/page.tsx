@@ -3,6 +3,7 @@
 
 import Link from "next/link"
 import Image from "next/image";
+import PaginationComponent from "@/app/components/Pagination";
 
 export default function Page() {
   const scrollToTop = () => {
@@ -74,6 +75,7 @@ export default function Page() {
               </Link>
             </article>
           </section>
+          <PaginationComponent></PaginationComponent>
         </section>
 
         {/* Seccion contactos */}
