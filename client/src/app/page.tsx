@@ -61,7 +61,7 @@ export default function Page() {
           <Link className="absolute right-0 m-2 bg-beige p-2 rounded-full" href="/add">
             <svg className="fill-white" xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" ><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>
           </Link>
-          <section className="w-full grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] auto-rows-[400px] gap-4">
+          <section className="w-full grid grid-cols-[repeat(auto-fill,minmax(280px,1fr))] auto-rows-[400px] gap-4">
             <article className="bg-beige2 rounded-xl relative overflow-hidden flex flex-col items-center">
               <img 
               className="h-[70%] object-cover"

@@ -16,7 +16,7 @@ const config: Config = {
         beige:"#AF9164",
         beige2:"#D8C8B2",
         myWhite:"#F7F3E3",
-        myGray:"#B3B6B7",
+        myGrey:"#B3B6B7",
         chochoBlack:"#2B2118"
       },
     },
