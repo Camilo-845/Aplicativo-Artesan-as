@@ -1,11 +1,67 @@
+"use client"
+
 import Link from "next/link"
 import { Artesania } from "../conections/actions"
 import Image from "next/image"
-export default function Artesanias({data}:{data?:Artesania[]}){
+import { getArtesanias } from "../conections/actions";
+import { useState, useEffect } from 'react';
+import PaginationComponent from "@/app/components/Pagination";
+
+
+export default function Artesanias(){
+  interface PaginationState {
+    page: number;
+    limit: number;
+    artesanias: {
+      [page: number]: Artesania[]; // Cada página tiene un array de 'Artesania'
+    };
+  }
+  
+  // Luego puedes usar este tipo en tu useState:
+  const [pagination, setPagination] = useState<PaginationState>({
+    page: 1,
+    limit: 21,
+    artesanias: {1:[]},
+  });
+  const [loading, setLoading] = useState(true);
+
+  // Función para cargar los datos de artesanías
+  const fetchData = async (page: number) => {
+    setLoading(true);
+  
+    // Obtén las artesanías para la página solicitada
+    const data = await getArtesanias(page, pagination.limit);
+  
+    // Actualiza el estado agregando los datos en la clave de la página correspondiente
+    setPagination((prev) => ({
+      ...prev,
+      artesanias: {
+        ...prev.artesanias, // Mantén las artesanías previas
+        [page]: data,       // Almacena las artesanías en la clave de la página solicitada
+      },
+      page, // Actualiza el número de página actual
+    }));
+  
+    setLoading(false);
+  };
+
+  // Cargar los datos cuando el componente se monte
+  useEffect(() => {
+    fetchData(pagination.page);
+  }, []);
+
+  // Función para cambiar de página
+  const handlePageChange = (newPage:number) => {
+    if(newPage > 0 && newPage != pagination.page){
+      fetchData(newPage);
+    }
+  };
+
     return (
-        <section className="w-full grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] auto-rows-[440px] gap-4">
+      <>
+        <section className="w-full grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] auto-rows-[440px] gap-4 mb-5">
             {
-              data?data.map((el)=>{
+              pagination.artesanias[pagination.page]?pagination.artesanias[pagination.page].map((el)=>{
                 return(
                   <article key={el.idArtesania} className="bg-beige2 rounded-xl relative overflow-hidden flex flex-col items-center">
                     <Image  
@@ -26,5 +82,12 @@ export default function Artesanias({data}:{data?:Artesania[]}){
             }
             
           </section>
+          <PaginationComponent 
+            handlePageChange = {handlePageChange}
+            firstPage={1}
+            currentPage={pagination.page}
+            lastPage={4}
+          />
+        </>
     )
 }

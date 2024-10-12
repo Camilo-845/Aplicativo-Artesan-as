@@ -1,12 +1,9 @@
 import Link from "next/link"
 import Image from "next/image";
-import PaginationComponent from "@/app/components/Pagination";
-import { getArtesanias } from "./conections/actions";
 import Artesanias from "./components/Artesanias";
 import ScrollToTopButton from "./components/ScrollToTopButton";
 
-export default async function Page() {    
-  const data =await getArtesanias(2 ,20);
+export default async function Page() {
   return (
     <>
       <nav className="mb-1">
@@ -56,8 +53,7 @@ export default async function Page() {
           <Link className="absolute right-0 m-2 bg-beige p-2 rounded-full" href="/add">
             <svg className="fill-white" xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" ><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>
           </Link>
-          <Artesanias data={data}></Artesanias>
-          <PaginationComponent></PaginationComponent>
+          <Artesanias></Artesanias>
         </section>
 
         {/* Seccion contactos */}
