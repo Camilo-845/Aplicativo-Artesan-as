@@ -18,7 +18,10 @@ export default async function Page() {
           <article className="bg-myGray row-span-2 rounded-lg relative text-white overflow-hidden">
             <img 
               className="w-full h-full object-cover absolute z-0"
-              src="https://d3nmwx7scpuzgc.cloudfront.net/sites/default/files/media/image/raquira-artesanias-640x400.jpg" 
+
+              src="https://tse3.mm.bing.net/th/id/OIP.Ft-ZJ4H2L5YyZL3IfBxjRAHaEk?w=196&h=180&c=7&r=0&o=5&pid=1.7" 
+
+
               alt="Imagene ceramicas de boyacá" />
             <article className="z-10 absolute inset-x-0 bottom-0 m-4 ">
               <h3 className="font-black text-5xl leading-12 text-shadow-lg">Artesanías Boyacenses: Tradición y Cultura</h3>
