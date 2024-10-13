@@ -17,7 +17,7 @@ export default async function Page() {
         <section className="grid grid-cols-2 gap-4 auto-rows-[13rem] ">
           <article className="bg-myGray row-span-2 rounded-lg relative text-white overflow-hidden">
             <img 
-              className="h-full w-auto object-cover absolute z-0"
+              className="w-full h-full object-cover absolute z-0"
               src="https://d3nmwx7scpuzgc.cloudfront.net/sites/default/files/media/image/raquira-artesanias-640x400.jpg" 
               alt="Imagene ceramicas de boyacá" />
             <article className="z-10 absolute inset-x-0 bottom-0 m-4 ">
