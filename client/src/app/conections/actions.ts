@@ -11,7 +11,7 @@ async function fetchData<T>(url: string, options?: RequestInit): Promise<T | { e
   try {
     const res = await fetch(url, options);
     if (!res.ok) {
-      return { error: `Error ${res.status}: ${res.statusText}` };
+      return { error: `Error ${res.status}: ${(await res.json()).result}` };
     }
     return await res.json();
   } catch (err) {

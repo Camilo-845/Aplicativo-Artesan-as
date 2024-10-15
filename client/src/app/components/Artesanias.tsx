@@ -6,6 +6,7 @@ import Image from "next/image"
 import { getArtesanias } from "../conections/actions";
 import { useState, useEffect } from 'react';
 import PaginationComponent from "@/app/components/Pagination";
+import { isValidRelativeUrl, isValidUrl } from "../utils/validation";
 
 
 export default function Artesanias(){
@@ -80,11 +81,12 @@ export default function Artesanias(){
                 return(
                   <article key={el.idArtesania} className="bg-beige2 rounded-xl relative overflow-hidden flex flex-col items-center">
                     <Image  
-                      src={el.imagen}
+                      src={isValidUrl(el.imagen) || isValidRelativeUrl(el.imagen)?el.imagen:"https://www.madeinnobsa.com/wp-content/uploads/2023/10/crop-0-0-400-400-0-LanaOveja-1.webp"}
                       alt=""
                       className="h-[60%] w-full object-cover"
                       width={500} // Puedes ajustar estos valores
                       height={400} // Puedes ajustar estos valores
+                      loading="lazy" // Carga diferida
                     />
                     <h3 className="font-black text-3xl leading-12 line-clamp-3 text-shadow-lg mx-3 text-center">{el.nombre}</h3>
                     <p className="font-bold text-xl leading-none line-clamp-3 text-center mx-3">{el.descripcion}</p>
