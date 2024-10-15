@@ -10,7 +10,12 @@ class ArtesaniaRoute{
     }
 
     private misRutas(){
-        this.apiRutaArtesania.get("",artesaniaController.obtenerArtesanias)
+        this.apiRutaArtesania.get("/get",artesaniaController.obtenerArtesanias)
+        this.apiRutaArtesania.get("/get/:id", artesaniaController.obtenerUnaArtesania)
+        this.apiRutaArtesania.post("/add", artesaniaController.agregarUnaArtesania)
+        this.apiRutaArtesania.put("/update", artesaniaController.actualizarUnaArtesania)
+        this.apiRutaArtesania.delete("/delete/:id", artesaniaController.eliminarUnaArtesania)
+        this.apiRutaArtesania.get("/rows/", artesaniaController.obtenerNumeroFilas)
     }
 }
 

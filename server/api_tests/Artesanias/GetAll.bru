@@ -1,0 +1,16 @@
+meta {
+  name: GetAll
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{API_URL}}artesania/get?page=5&limit=20
+  body: none
+  auth: none
+}
+
+params:query {
+  page: 5
+  limit: 20
+}

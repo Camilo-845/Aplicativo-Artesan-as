@@ -1,0 +1,17 @@
+meta {
+  name: DeleteOne
+  type: http
+  seq: 5
+}
+
+delete {
+  url: {{API_URL}}artesania/delete/92
+  body: none
+  auth: none
+}
+
+body:json {
+  {
+    "idArtesania": 85
+  }
+}

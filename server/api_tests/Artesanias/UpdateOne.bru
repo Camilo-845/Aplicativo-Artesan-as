@@ -1,0 +1,20 @@
+meta {
+  name: UpdateOne
+  type: http
+  seq: 3
+}
+
+put {
+  url: {{API_URL}}artesania/update
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "nombre": "La mejor de todas mi prro",
+    "descripcion": "Esta es mi nueva descripcion prro",
+    "imagen": "http://lomejor.com/asdfs.jpg",
+    "idArtesania": 92
+  }
+}

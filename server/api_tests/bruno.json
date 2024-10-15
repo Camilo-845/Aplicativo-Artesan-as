@@ -1,0 +1,12 @@
+{
+  "version": "1",
+  "name": "Bruno_API_Artesanias_tests",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ],
+  "dependencies": {
+    "@faker-js/faker": "8.3.1"
+  }
+}

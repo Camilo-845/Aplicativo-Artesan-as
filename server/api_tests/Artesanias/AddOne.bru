@@ -1,0 +1,19 @@
+meta {
+  name: AddOne
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{API_URL}}artesania/add
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "nombre":"La mejor de todas mi prrrro",
+    "descripcion":"uy como así de que detalles",
+    "imagen":"http://lomejor.com/asdfs.jpg"
+  }
+}
