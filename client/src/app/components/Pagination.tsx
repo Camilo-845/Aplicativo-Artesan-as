@@ -26,7 +26,7 @@ export default function PaginationComponent({
   handlePageChange?: (newPage: number) => void;
 }) {
   const pages =(lastPage&&firstPage&&currentPage)? lastPage - firstPage + 1: 0;
-  let rendedPages:pageButtonData[] = [];
+  const rendedPages:pageButtonData[] = [];
 
   for (let i = 0, j = 0; i < pages && i < 3; i++, j++) {
     if(pages!=0){

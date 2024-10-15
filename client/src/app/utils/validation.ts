@@ -7,6 +7,7 @@ export function isValidUrl(url: string): boolean {
   try {
     new URL(url); // Intenta crear un objeto URL
     return true; // Es una URL válida
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (_) {
     return false; // No es una URL válida
   }
