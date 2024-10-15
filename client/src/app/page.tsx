@@ -1,7 +1,6 @@
 import Link from "next/link"
 import Image from "next/image";
 import Artesanias from "./components/Artesanias";
-import ScrollToTopButton from "./components/ScrollToTopButton";
 
 export default async function Page() {
   return (
@@ -29,7 +28,7 @@ export default async function Page() {
             <img 
               src="https://caracol.com.co/resizer/v2/https%3A%2F%2Fcloudfront-us-east-1.images.arcpublishing.com%2Fprisaradioco%2FJP35SF4XIBL47NPJRTOJKBUZ7E.jpg?auth=239e166ac2016ddea2739f2d9f2848d1fe87a45f9edecba814ac24836fed133e&height=625&width=1080&quality=70&smart=true" 
               alt="imagen artesanias de Colombia" 
-              className="w-full h-auto object-cover absolute z-0"/>
+              className="w-full h-full object-cover absolute z-0"/>
             <article className="z-10 absolute inset-x-0 bottom-0 m-4 "  >
               <h3 className="font-black text-4xl leading-12 text-shadow-lg">Cerámica Ancestral: Arte que Trasciende</h3>
               <p className="font-black text-xl leading-6 text-shadow-lg">Cada pieza es una obra maestra, creada con técnicas ancestrales que han pasado de generación en generación. Lleva a tu hogar el espíritu de Boyacá</p>
@@ -37,7 +36,7 @@ export default async function Page() {
           </article>
           <article className="bg-myGray rounded-lg relative text-white overflow-hidden">
             <img 
-              className="w-full h-auto object-cover absolute z-0"
+              className="h-full w-full  object-cover absolute z-0"
               src="https://www.civitatis.com/f/colombia/villa-de-leyva/galeria/big/maestro-artesano-raquira.jpg" 
               alt="Artesano de nuestra tierra" />
             <article className="z-10 absolute inset-x-0 bottom-0 m-4 ">
@@ -73,7 +72,6 @@ export default async function Page() {
             </article>
           </section>
         </footer>
-        <ScrollToTopButton></ScrollToTopButton>
       </main>
     </>
   );

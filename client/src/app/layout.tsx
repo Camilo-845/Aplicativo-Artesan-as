@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Link from "next/link";
 import Image from "next/image";
+import ScrollToTopButton from "./components/ScrollToTopButton";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -43,6 +44,7 @@ export default function RootLayout({
           </Link>
         </header>
         {children}
+        <ScrollToTopButton></ScrollToTopButton>
       </body>
     </html>
   );

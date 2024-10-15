@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { Artesania } from "../conections/actions"
+import { Artesania, getCountAllRows } from "../conections/actions"
 import Image from "next/image"
 import { getArtesanias } from "../conections/actions";
 import { useState, useEffect } from 'react';
@@ -15,6 +15,7 @@ export default function Artesanias(){
     artesanias: {
       [page: number]: Artesania[]; // Cada página tiene un array de 'Artesania'
     };
+    lastPage:number;
   }
   
   // Luego puedes usar este tipo en tu useState:
@@ -22,8 +23,9 @@ export default function Artesanias(){
     page: 1,
     limit: 21,
     artesanias: {1:[]},
+    lastPage:4
   });
-  const [loading, setLoading] = useState(true);
+  const [/* loading */, setLoading] = useState(true);
 
   // Función para cargar los datos de artesanías
   const fetchData = async (page: number) => {
@@ -31,7 +33,19 @@ export default function Artesanias(){
   
     // Obtén las artesanías para la página solicitada
     const data = await getArtesanias(page, pagination.limit);
-  
+    const totalRows = await getCountAllRows();
+    
+    if ('error' in data ) {
+      console.error("Error al obtener las artesanías:", data.error);
+      setLoading(false);
+      return; // Detenemos el proceso en caso de error
+    }
+    if ( 'error' in totalRows) {
+      console.error("Error al obtener numeros de filas:", totalRows.error);
+      setLoading(false);
+      return; // Detenemos el proceso en caso de error
+    }
+
     // Actualiza el estado agregando los datos en la clave de la página correspondiente
     setPagination((prev) => ({
       ...prev,
@@ -40,6 +54,7 @@ export default function Artesanias(){
         [page]: data,       // Almacena las artesanías en la clave de la página solicitada
       },
       page, // Actualiza el número de página actual
+      lastPage: Math.ceil(totalRows.rows / prev.limit)
     }));
   
     setLoading(false);
@@ -61,13 +76,13 @@ export default function Artesanias(){
       <>
         <section className="w-full grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] auto-rows-[440px] gap-4 mb-5">
             {
-              pagination.artesanias[pagination.page]?pagination.artesanias[pagination.page].map((el)=>{
+              pagination.artesanias[pagination.page]?pagination.artesanias[pagination.page].map((el:Artesania)=>{
                 return(
                   <article key={el.idArtesania} className="bg-beige2 rounded-xl relative overflow-hidden flex flex-col items-center">
                     <Image  
-                      src="https://www.civitatis.com/f/colombia/villa-de-leyva/galeria/big/maestro-artesano-raquira.jpg" 
+                      src={el.imagen}
                       alt=""
-                      className="h-[60%] w-auto object-cover"
+                      className="h-[60%] w-full object-cover"
                       width={500} // Puedes ajustar estos valores
                       height={400} // Puedes ajustar estos valores
                     />
@@ -86,7 +101,7 @@ export default function Artesanias(){
             handlePageChange = {handlePageChange}
             firstPage={1}
             currentPage={pagination.page}
-            lastPage={4}
+            lastPage={pagination.lastPage}
           />
         </>
     )
