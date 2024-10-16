@@ -1,4 +1,4 @@
-"use client"; // Asegúrate de agregar esto al inicio
+"use client";
 
 import Link from "next/link";
 import { ChangeEvent, FormEvent, useState } from "react";

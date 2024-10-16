@@ -29,7 +29,7 @@ export async function getOneArtesania(idArtesia: number): Promise<Artesania | { 
 
 export async function updateOneArtesania(params: Artesania): Promise<Artesania | { error: string }> {
   return fetchData<Artesania>(`${backendURL}artesania/update`, {
-    method: "POST",
+    method: "PUT",
     headers: {
       "Content-Type": "application/json",
     },
