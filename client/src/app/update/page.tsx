@@ -8,6 +8,7 @@ import {
   Artesania,
   getOneArtesania,
   updateOneArtesania,
+  deleteOneArtesania
 } from "@/app/conections/actions";
 
 interface UpdateForm {
@@ -56,7 +57,7 @@ export default function Page() {
           setbgImage(response.imagen);
         }
       } catch (error) {
-        setFetchError("Error al obtener la artesanía.");
+        setFetchError("Error al obtener la artesanía."+error);
       } finally {
         setLoading(false);
       }
@@ -67,6 +68,7 @@ export default function Page() {
 
   const handleFormSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    console.log("Manejando submit")
 
     // Validación de campos vacíos
     let valid = true;
@@ -122,6 +124,23 @@ export default function Page() {
       [e.target.name]: "",
     }));
   };
+
+  const handleDelete = async ()=>{
+    const newArtesania: Artesania = {
+        idArtesania: data.idArtesania,
+        nombre: data.nombre,
+        descripcion: data.descripcion,
+        imagen: data.imagen,
+      };
+      const addedArtesania = await deleteOneArtesania(newArtesania);
+      if ("error" in addedArtesania) {
+        console.error("Error al Elimnar artesanía:", addedArtesania.error);
+        window.alert(`Error al Eliminar artesania ${addedArtesania.error}`);
+      } else {
+        window.alert("Artesania eliminada con exito");
+        router.push("/");
+      }
+  }
 
   if (loading)
     return (
@@ -214,7 +233,8 @@ export default function Page() {
           </button>
           <button
             className="font-black text-xl text-choco col-span-2 border-4 border-choco w-1/6 min-w-[300px] px-5 py-2 text-center rounded-lg"
-            type="submit"
+            onClick={()=>handleDelete()}
+            type="button"
           >
             Eliminar
           </button>

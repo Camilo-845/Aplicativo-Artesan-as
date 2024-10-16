@@ -38,7 +38,7 @@ export async function updateOneArtesania(params: Artesania): Promise<Artesania |
 }
 
 export async function deleteOneArtesania(params: Artesania): Promise<{ idArtesania?: number; error?: string }> {
-  return fetchData<{ idArtesania: number }>(`${backendURL}artesania/delete`, {
+  return fetchData<{ idArtesania: number }>(`${backendURL}artesania/delete/${params.idArtesania}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
