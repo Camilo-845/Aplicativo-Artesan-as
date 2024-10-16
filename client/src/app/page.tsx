@@ -26,7 +26,6 @@ export default async function Page() {
               src="https://d3nmwx7scpuzgc.cloudfront.net/sites/default/files/media/image/raquira-artesanias-640x400.jpg"
               alt="Imagen cerámicas de Boyacá"
               layout="fill"
-              objectFit="cover"
               priority={true}
             />
             <article className="z-10 absolute inset-x-0 bottom-0 m-4 ">
@@ -44,7 +43,6 @@ export default async function Page() {
               src="https://caracol.com.co/resizer/v2/https%3A%2F%2Fcloudfront-us-east-1.images.arcpublishing.com%2Fprisaradioco%2FJP35SF4XIBL47NPJRTOJKBUZ7E.jpg?auth=239e166ac2016ddea2739f2d9f2848d1fe87a45f9edecba814ac24836fed133e&height=625&width=1080&quality=70&smart=true"
               alt="Imagen artesanías de Colombia"
               layout="fill"
-              objectFit="cover"
               priority={true}
               className="absolute z-0 group-hover:scale-110 transition duration-200"
             />
@@ -65,7 +63,6 @@ export default async function Page() {
               src="https://www.civitatis.com/f/colombia/villa-de-leyva/galeria/big/maestro-artesano-raquira.jpg"
               alt="Artesano de nuestra tierra"
               layout="fill"
-              objectFit="cover"
               priority={true}
             />
             <article className="z-10 absolute inset-x-0 bottom-0 m-4">
