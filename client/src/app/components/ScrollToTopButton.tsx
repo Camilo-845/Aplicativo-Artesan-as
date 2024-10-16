@@ -33,7 +33,7 @@ export default function ScrollToTopButton() {
   return (
     <button
       onClick={scrollToTop}
-      className={`fixed bottom-4 right-4 z-50 bg-gray-200 p-3 rounded-full shadow-lg transition-opacity transform duration-300 ${
+      className={`fixed bottom-4 right-4 z-50 bg-beige p-3 rounded-full shadow-lg transition-opacity transform duration-300 transition hover:scale-110 ${
         isVisible ? "opacity-100" : "opacity-0"
       }`}
     >

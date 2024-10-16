@@ -63,7 +63,7 @@ export default function PaginationComponent({
         {currentPage != firstPage ? (
           <PaginationItem>
             <PaginationPrevious
-              className="bg-primary text-primary-foreground hover:bg-primary/90"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-110 transition duration-300"
               onClick={() => (handlePageChange)?handlePageChange((currentPage || 0) - 1):undefined}
               href="#productos"
             />
@@ -104,7 +104,7 @@ export default function PaginationComponent({
         {currentPage != lastPage ? (
           <PaginationItem>
             <PaginationNext
-              className="bg-primary text-primary-foreground hover:bg-primary/90"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-110 transition duration-300"
               onClick={() => (handlePageChange)?handlePageChange((currentPage || 0) + 1):undefined}
               href="#productos"
             />
