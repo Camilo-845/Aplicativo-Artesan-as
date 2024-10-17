@@ -25,8 +25,8 @@ export default async function Page() {
               className="w-full h-full object-cover absolute z-0 group-hover:scale-110 transition duration-200"
               src="https://d3nmwx7scpuzgc.cloudfront.net/sites/default/files/media/image/raquira-artesanias-640x400.jpg"
               alt="Imagen cerámicas de Boyacá"
-              layout="fill"
               priority={true}
+              fill = {true}
             />
             <article className="z-10 absolute inset-x-0 bottom-0 m-4 ">
               <h3 className="font-black text-5xl leading-12 text-shadow-lg">
@@ -42,8 +42,8 @@ export default async function Page() {
             <Image
               src="https://caracol.com.co/resizer/v2/https%3A%2F%2Fcloudfront-us-east-1.images.arcpublishing.com%2Fprisaradioco%2FJP35SF4XIBL47NPJRTOJKBUZ7E.jpg?auth=239e166ac2016ddea2739f2d9f2848d1fe87a45f9edecba814ac24836fed133e&height=625&width=1080&quality=70&smart=true"
               alt="Imagen artesanías de Colombia"
-              layout="fill"
               priority={true}
+              fill={true}
               className="absolute z-0 group-hover:scale-110 transition duration-200"
             />
             <article className="z-10 absolute inset-x-0 bottom-0 m-4">
@@ -62,7 +62,7 @@ export default async function Page() {
               className="h-full w-full object-cover absolute z-0 group-hover:scale-110 transition duration-200"
               src="https://www.civitatis.com/f/colombia/villa-de-leyva/galeria/big/maestro-artesano-raquira.jpg"
               alt="Artesano de nuestra tierra"
-              layout="fill"
+              fill={true}
               priority={true}
             />
             <article className="z-10 absolute inset-x-0 bottom-0 m-4">
@@ -106,7 +106,8 @@ export default async function Page() {
           className="mt-7 flex flex-col items-center w-full"
           id="contacto"
         >
-          <h2 className="text-3xl text-choco font-black mb-7">Contacto</h2>
+          <h2 
+          className="text-3xl text-choco font-black mb-7">Contacto</h2>
           <section className="flex justify-around w-full items-center">
             <Image
               src="./media/logo.svg"

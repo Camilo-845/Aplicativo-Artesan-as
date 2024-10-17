@@ -4,6 +4,7 @@ import { ChangeEvent, FormEvent, useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 import {
   Artesania,
   getOneArtesania,
@@ -18,7 +19,7 @@ interface UpdateForm {
   imagen: string;
 }
 
-export default function Page() {
+function UpdatePage() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [bgImage, setbgImage] = useState<string>("");
@@ -113,6 +114,7 @@ export default function Page() {
   const handleInputChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
+    console.log(process.env.BACKEND_HOST)
     setData((value) => ({
       ...value,
       [e.target.name]: e.target.value,
@@ -169,6 +171,8 @@ export default function Page() {
 
   return (
     <main className="mt-2 w-11/12 flex flex-col items-center">
+      <Suspense>
+
       <h2 className="text-3xl text-choco font-black mb-3">Editar Producto</h2>
       <section className="w-full">
         <form
@@ -197,7 +201,7 @@ export default function Page() {
               errors.imagen
                 ? "border-2 border-rose-500 placeholder:text-rose-500"
                 : ""
-            }`}
+                }`}
             name="imagen"
             value={data.imagen}
             placeholder={errors.imagen || "Nueva Imagen"}
@@ -246,6 +250,15 @@ export default function Page() {
           </Link>
         </form>
       </section>
+            </Suspense>
     </main>
+  );
+}
+
+export default function Page() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <UpdatePage />
+    </Suspense>
   );
 }
