@@ -24,7 +24,6 @@ COPY . .
 # Learn more here: https://nextjs.org/telemetry
 # Uncomment the following line in case you want to disable telemetry during the build.
 # ENV NEXT_TELEMETRY_DISABLED=1
-ENV BACKEND_HOST=http://localhost:8080/
 
 RUN \
   if [ -f package-lock.json ]; then npm run build; \

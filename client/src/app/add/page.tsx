@@ -30,7 +30,7 @@ export default function Page() {
 
   async function handleFormSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-
+    console.log("HOST: ", process.env.BACKEND_HOST)
     // Validación de campos vacíos
     let valid = true;
     const newErrors = { nombre: "", descripcion: "", imagen: "" };
