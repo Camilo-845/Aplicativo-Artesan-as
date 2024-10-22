@@ -44,7 +44,6 @@ export default function PaginationComponent({
           active: true,
         };
         rendedPages.push(pageButtonData);
-        console.log("Me sali mi prro, no respondo por más renders_", i)
         break;
       }
       rendedPages.push(pageButtonData);

@@ -69,7 +69,6 @@ function UpdatePage() {
 
   const handleFormSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Manejando submit", process.env.BACKEND_HOST)
 
     // Validación de campos vacíos
     let valid = true;
@@ -114,7 +113,6 @@ function UpdatePage() {
   const handleInputChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    console.log(process)
     setData((value) => ({
       ...value,
       [e.target.name]: e.target.value,
