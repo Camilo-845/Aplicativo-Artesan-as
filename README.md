@@ -1,14 +1,19 @@
-# Aplicativo Artesanias
-Aplicativo web para control de items relacionados con las artesanias de Boyáca
+# Aplicativo Artesanias 
+## _NodeJs + PostgresSQL + NextJs + TypeScript + Docker_
+
+
+Aplicativo web para control de items relacionados con las artesanias de Boyacá
+
+![app previosus image](app.png)
 
 ## Carcteristicas
 - Obten una gran nunmero de artesanias
 - Gran diseño de aplicacion
 ## Tecnologias
-- [**Front:**](./client/) React (TypeScript)
+- [**Frontend:**](./client/) NextJs (TypeScript)
 - [**Backend:**](./server/) NodeJs (TypeScript)
 - [**Persistencia:**](/database/) Postgresql
-- **Empaquedo**: Docker
+- [**Empaquedo**](docker-compose.yml): Docker
 - **Control de versiones**: Git
 ## Inicializar Proyecto
 Crear un archivo .env en la raiz del proyecto con el siguiente formato
